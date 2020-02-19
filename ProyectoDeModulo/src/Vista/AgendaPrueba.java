@@ -18,6 +18,11 @@ public class AgendaPrueba {
 		agenda.AnadirContacto(b);
 		agenda.AnadirContacto(c);
 		agenda.AnadirContacto(d);
+		agenda.ListarContactos();
+		
+		agenda.BuscaContacto("leo zunica");
+		
+		agenda.EliminarContacto("andrea rubilar");
 		
 		agenda.ListarContactos();
 	}

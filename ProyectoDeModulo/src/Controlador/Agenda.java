@@ -45,11 +45,30 @@ public class Agenda {
 		
 	}
 	
-	public void BuscaContacto() {
-		
+	public void BuscaContacto(String nombre) {
+		for (Contacto contacto : listaContactos) {
+			if (contacto.getNombre().equalsIgnoreCase(nombre)){
+				System.out.println(contacto.getNumero());
+			} 
+		}
 	}
 
-	public void EliminarContacto() {
+	/*public void EliminarContacto(Contacto a) {
+		if (this.ExisteContacto(a)) {
+			listaContactos.remove(a);
+			System.out.println("Contacto Eliminado");
+		} else {System.out.println("Contacto no existe");}
+	}*/
+	
+	public void EliminarContacto(String nombre) {
+		for (Contacto contacto : listaContactos) {
+			if (contacto.getNombre().equalsIgnoreCase(nombre)){
+				listaContactos.remove(contacto);
+				System.out.println("Contacto Eliminado");
+			} else {
+				System.out.println("Contacto no existe");
+			}
+		}
 		
 	}
 	
