@@ -16,6 +16,10 @@ public abstract class Contacto {
 	}
 
 
+	public Contacto() {
+		
+	}
+	
 	public Contacto(String nombre2, String numero2, String categoria2) {
 		super();
 	}
