@@ -9,16 +9,37 @@ public class Agenda {
 	
 	//ARRAYLIST INFINITOS CONTACTOS
 	ArrayList <Contacto> listaContactos = new ArrayList<Contacto>();
-	
-	public void AnadirContacto(Contacto a){
+	int tamano;
+		
+	public int getTamano() {
+		return tamano;
+	}
+
+	public void setTamano(int tamano) {
+		this.tamano = tamano;
+	}
+
+	/*public void AnadirContacto(Contacto a){
 		if (!ExisteContacto(a)) {
-			if (this.listaContactos.size()<=15){
+			if (this.listaContactos.size()<=this.tamano){
 				listaContactos.add(a);
 				//System.out.println(listaContactos);
 			} else {System.out.println("Agenda llena");}
 		}
 		else {
 			System.out.println("Contacto existe");
+		}
+	}*/
+	
+	public void AnadirContacto(Contacto a){
+		if (this.listaContactos.size()<this.tamano) {
+			if (!ExisteContacto(a)){
+				listaContactos.add(a);
+				System.out.println("Agregado contacto: " + a.getNombre());
+			} else {System.out.println("Contacto existe");}
+		}
+		else {
+			System.out.println("Agenda llena");
 		}
 	}
 
@@ -61,22 +82,33 @@ public class Agenda {
 	}*/
 	
 	public void EliminarContacto(String nombre) {
-		for (Contacto contacto : listaContactos) {
-			if (contacto.getNombre().equalsIgnoreCase(nombre)){
-				listaContactos.remove(contacto);
+//		for (Contacto contacto : listaContactos) {
+//			if (contacto.getNombre().equalsIgnoreCase(nombre)){
+//				listaContactos.remove(contacto);
+//				System.out.println("Contacto Eliminado");
+//			} else {
+//				System.out.println("Contacto no existe");
+//			}
+//		}
+		
+		for (int i = 0; i < listaContactos.size(); i++) {
+			if (listaContactos.get(i).getNombre().equalsIgnoreCase(nombre)){
+				listaContactos.remove(i);
 				System.out.println("Contacto Eliminado");
-			} else {
-				System.out.println("Contacto no existe");
-			}
+			}		
+		} 
+	}
+	
+	public boolean AgendaLlena() {
+		boolean llena=false;
+		if (listaContactos.size()>= this.tamano) {
+			llena=true;
 		}
-		
+		return llena;
 	}
 	
-	public void AgendaLlena() {
-		
-	}
-	
-	public void EspacioLibre() {
-		
-	}
+	public int EspacioLibre() {
+		int espacioRestante = this.tamano - (int)listaContactos.size();
+		return espacioRestante;
+	} 
 }

@@ -9,6 +9,8 @@ public class AgendaPrueba {
 		// TODO Auto-generated method stub
 		Agenda agenda = new Agenda();
 		
+		agenda.setTamano(15);
+		
 		Familia a = new Familia("pepito pagadoble","998291291");
 		Familia b = new Familia("pepito pagadoble","342342342");
 		OtroContacto c = new OtroContacto("Andrea Rubilar","9983423291");
@@ -25,6 +27,8 @@ public class AgendaPrueba {
 		agenda.EliminarContacto("andrea rubilar");
 		
 		agenda.ListarContactos();
+		
+		System.out.println("Espacio Libre : "+agenda.EspacioLibre()+" / " + agenda.getTamano());
 	}
 
 }
