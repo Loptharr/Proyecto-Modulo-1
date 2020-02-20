@@ -69,38 +69,102 @@ public class EjecutableAgenda {
 	                	 	case 4:
 	                	 		OtroContacto d = new OtroContacto(nombre,numero);
 	                	 		agenda.AnadirContacto(d);	
-	                	 		break;
+	                	 		break;	                	 		
 	                	 default:
 	                	 		System.out.println ("Opcion ingresada no es valida");
 	                	 }
+	                	 System.out.println("Desea continuar? s/n : ");
+	                     String alternativa1 = teclado.next();
+	                     if (continua(alternativa1)) {
+	                    	 continuar=true;
+	                     } else{continuar=false;}
 	                	 break;
 	            case 2:
 	            	System.out.println ("Ingrese nombre del contacto que desea buscar");
 	            	String nombreExiste = teclado.next();
 	            	
 	            	 if(agenda.DevuelveContacto(nombreExiste)!=null) {
-	            		 
-	            	 }
-	            	
+	            		 if (agenda.ExisteContacto(agenda.DevuelveContacto(nombreExiste))){
+	            			 System.out.println ("El contacto: "+ agenda.DevuelveContacto(nombreExiste).getNombre() +", existe");            			
+	            		 };
+	            	 } else {System.out.println ("El contacto no existe");}
+	            	 System.out.println("Desea continuar? s/n : ");
+                     String alternativa2 = teclado.next();
+                     if (continua(alternativa2)) {
+                    	 continuar=true;
+                     } else{continuar=false;}
 	            	break;
 	            case 3:
-	            	agenda.ListarContactos();
+	            	if (!agenda.AgendaLlena()) {
+	            		agenda.ListarContactos();
+					} else {System.out.println ("Agenda vacía.");}
+	            	System.out.println("Desea continuar? s/n : ");
+                    String alternativa3 = teclado.next();
+                    if (continua(alternativa3)) {
+                   	 continuar=true;
+                    } else{continuar=false;}
 	            	break;
 	            case 4:
 	            	System.out.println ("Ingrese nombre del contacto que desea buscar");
 	            	String nombreAEncontrar = teclado.next();
 	            	if (!agenda.BuscaContacto(nombreAEncontrar)) {
 						System.out.println ("El contacto no existe");
-					} else {
-						System.out.println ("El contacto existe");
 					}
-	            	
+	            	System.out.println("Desea continuar? s/n : ");
+                    String alternativa4 = teclado.next();
+                    if (continua(alternativa4)) {
+                   	 continuar=true;
+                    } else{continuar=false;}
 	            	break;
 	            case 5:	
-		
+	            	System.out.println ("Ingrese nombre del contacto que desea eliminar");
+	            	String nombreElim = teclado.next();
+	            	agenda.EliminarContacto(nombreElim);
+	            	System.out.println("Desea continuar? s/n : ");
+                    String alternativa5 = teclado.next();
+                    if (continua(alternativa5)) {
+                   	 continuar=true;
+                    } else{continuar=false;}
+	            	break;
+	            case 6:
+	            	if (!agenda.AgendaLlena()) {
+	            		System.out.println ("Agenda no está llena");				
+					} else {System.out.println ("Agenda sí está llena");}
+	            	System.out.println("Desea continuar? s/n : ");
+                    String alternativa6 = teclado.next();
+                    if (continua(alternativa6)) {
+                   	 continuar=true;
+                    } else{continuar=false;}
+	            	break;
+	            case 7:
+	            	System.out.println ("Espacio Libre : " + agenda.EspacioLibre() + " / " + agenda.getTamano());
+	            	System.out.println("Desea continuar? s/n : ");
+                    String alternativa7 = teclado.next();
+                    if (continua(alternativa7)) {
+                   	 continuar=true;
+                    } else{continuar=false;}
+	            	break;
+	            default:
+        	 		System.out.println ("Opcion ingresada no es valida");
+        	 		System.out.println("Desea continuar? s/n : ");
+                    String alternativa8 = teclado.next();
+                    if (continua(alternativa8)) {
+                   	 continuar=true;
+                    } else{continuar=false;}
+        	 		break;
+        	 }
+        	 
 	
-            }       
+                
         }
+        
+        System.out.println("Aplicación finalizada.");
+        System.out.println("----------------------");
 	}
 	
+	public static boolean continua(String alternativa) {
+	if (alternativa.equalsIgnoreCase("s")) {
+    	return true;
+	} else {return false;}
+	}
 }

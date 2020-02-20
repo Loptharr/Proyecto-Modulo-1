@@ -105,7 +105,7 @@ public class Agenda {
 			if (listaContactos.get(i).getNombre().equalsIgnoreCase(nombre)){
 				listaContactos.remove(i);
 				System.out.println("Contacto Eliminado");
-			}		
+			}	
 		} 
 	}
 	
