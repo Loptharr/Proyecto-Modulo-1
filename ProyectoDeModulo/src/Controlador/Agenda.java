@@ -10,7 +10,14 @@ public class Agenda {
 	//ARRAYLIST INFINITOS CONTACTOS
 	ArrayList <Contacto> listaContactos = new ArrayList<Contacto>();
 	int tamano;
+	
+	
 		
+	public Agenda(int tamano) {
+		super();
+		this.tamano = tamano;
+	}
+
 	public int getTamano() {
 		return tamano;
 	}
@@ -66,14 +73,17 @@ public class Agenda {
 		
 	}
 	
-	public void BuscaContacto(String nombre) {
+	public boolean BuscaContacto(String nombre) {
+		boolean encontro=false;
 		for (Contacto contacto : listaContactos) {
 			if (contacto.getNombre().equalsIgnoreCase(nombre)){
-				System.out.println(contacto.getNumero());
+				System.out.println("El telefono de " + nombre + " es: "+ contacto.getNumero());
+				encontro=true;
 			} 
 		}
+		return encontro;
 	}
-
+	
 	/*public void EliminarContacto(Contacto a) {
 		if (this.ExisteContacto(a)) {
 			listaContactos.remove(a);
@@ -111,4 +121,15 @@ public class Agenda {
 		int espacioRestante = this.tamano - (int)listaContactos.size();
 		return espacioRestante;
 	} 
+	
+	
+	public Contacto DevuelveContacto(String nombre) {
+		Contacto contactoAux = null;
+		for (Contacto contacto : listaContactos) {
+			if (contacto.getNombre().equalsIgnoreCase(nombre)){
+				contactoAux = contacto;
+			} 
+			}
+		return contactoAux;
+	}
 }

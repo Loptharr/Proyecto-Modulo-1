@@ -7,7 +7,7 @@ public class AgendaPrueba {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Agenda agenda = new Agenda();
+		Agenda agenda = new Agenda(15);
 		
 		agenda.setTamano(15);
 		
