@@ -96,7 +96,9 @@ public class EjecutableAgenda {
 	            	break;
 	            case 3:
 	            	if (!agenda.AgendaLlena()) {
-	            		agenda.ListarContactos();
+	            		for (Contacto s : agenda.ListarContactos()) { 
+	            			System.out.println(s);
+	            			}
 					} else {System.out.println ("Agenda vacía.");}
 	            	System.out.println("Desea continuar? s/n : ");
                     String alternativa3 = teclado.next();

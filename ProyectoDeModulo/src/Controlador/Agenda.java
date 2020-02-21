@@ -66,10 +66,18 @@ public class Agenda {
 		    } return existe;
 	    }*/
 
-	public void ListarContactos() {
+//	public void ListarContactos() {
+//		for (Contacto contacto : listaContactos) {
+//			System.out.println(contacto.toString());
+//		}
+//		
+//	}
+	
+	public ArrayList<Contacto> ListarContactos() {
 		for (Contacto contacto : listaContactos) {
-			System.out.println(contacto.toString());
+			//System.out.println(contacto.toString());
 		}
+		return listaContactos;
 		
 	}
 	

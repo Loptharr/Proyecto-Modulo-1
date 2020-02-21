@@ -1,8 +1,8 @@
 package Controlador;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.*;
+
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,8 +10,6 @@ import Modelo.Familia;
 
 class AgendaTest {
 
-	
-	
 	@Test
 	void testAnadirContacto() {
 		Agenda agenda = new Agenda(15);
@@ -20,11 +18,10 @@ class AgendaTest {
 		Familia contacto = new Familia(nombre,numero);
 		agenda.AnadirContacto(contacto);
 		String nombre2 = "blaada";
-		String numero2 = "5698768765";
+		String numero2 = "569876";
 		Familia contacto2 = new Familia(nombre2,numero2);
 		agenda.AnadirContacto(contacto2);
-		
-		assertEquals("Probando agregar 1 elemento a agenda", 2, agenda.sizeAgenda());
+		assertEquals("Probando agregar 2 elemento a agenda", 2, agenda.sizeAgenda());
 		
 	}
 
@@ -43,10 +40,14 @@ class AgendaTest {
 	@Test
 	void testListarContactos() {
 		String nombre = "Luis";
-		String numero = "5698768765";
+		String numero = "123456";
 		Agenda agenda = new Agenda(15);
 		Familia contacto = new Familia(nombre,numero);
+		ArrayList queQueremos = new ArrayList(); 
+		queQueremos.add(contacto);
 		agenda.ListarContactos();
+		assertEquals(queQueremos, agenda.ListarContactos());
+		
 	}
 
 	@Test
@@ -67,7 +68,10 @@ class AgendaTest {
 		String numero = "5698768765";
 		Agenda agenda = new Agenda(15);
 		Familia contacto = new Familia(nombre,numero);
+		agenda.AnadirContacto(contacto);
 		agenda.EliminarContacto(nombre);
+		int result = agenda.sizeAgenda();
+		assertEquals(0,result);
 	}
 
 	@Test
