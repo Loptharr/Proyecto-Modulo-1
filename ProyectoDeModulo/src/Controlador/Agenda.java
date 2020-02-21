@@ -132,4 +132,9 @@ public class Agenda {
 			}
 		return contactoAux;
 	}
+	
+	public int sizeAgenda() {
+		int tamano = (int)listaContactos.size();
+		return tamano;
+	} 
 }
